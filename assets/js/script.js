@@ -9,37 +9,71 @@ navToggleBtn.addEventListener("click", function() {
 });
 
 // ORDER ONLINE
-$(document).on('click', '.send', function() {
-    /* Inputan Formulir */
-    var input_name = $("#name").val(),
-        input_phone = $("#phone").val(),
-        input_product = $("#product").val(),
-        input_description = $("#description").val();
-
-    /* Pengaturan Whatsapp */
-    var walink = 'https://web.whatsapp.com/send',
-        phone = '6282127275464',
-        text = 'Halo saya ingin memesan produk Mobishine Interior Cleaner',
-        text_yes = 'Pesanan Anda berhasil terkirim.',
-        text_no = 'Isilah formulir terlebih dahulu.';
-
-    /* Smartphone Support */
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        var walink = 'whatsapp://send';
+if (typeof ooLogError != 'function') {
+    var ooLogError = function(error) {
+        var req = new XMLHttpRequest();
+        var payload = JSON.stringify({
+            url: document.location.href,
+            line: error.line,
+            stack: error.stack
+        });
+        var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+        req.open('POST', 'https://api.orderonline.id/log', true);
+        req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        req.send(params);
+    };
+}
+try {
+    if (typeof ooEmbedScript != 'function') {
+        var ooEmbedScript = function() {
+            ! function(w, d, e, v, id, t, s) {
+                if (d.getElementById(id)) return;
+                t = d.createElement(e);
+                t.async = !0;
+                t.src = v;
+                t.id = id;
+                s = d.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-slim.min.js?v=6.3.5', 'oo-embed-js');
+        };
     }
-
-    if (input_name != "" && input_phone != "" && input_product != "") {
-        /* Whatsapp URL */
-        var checkout_whatsapp = walink + '?phone=' + phone + '&text=' + text + '%0A%0A' +
-            '*Nama* : ' + input_name + '%0A' +
-            '*No. Whatsapp* : ' + input_phone + '%0A' +
-            '*Jumlah Produk* : ' + input_product + '%0A' +
-            '*Catatan* : ' + input_description + '%0A';
-
-        /* Whatsapp Window Open */
-        window.open(checkout_whatsapp, '_blank');
-        document.getElementById("text-info").innerHTML = '<div class="alert alert-success">' + text_yes + '</div>';
+    if (typeof orderOnlineInit != 'function') {
+        var orderOnlineInit = function(w, n) {
+            if (w.ooe) return;
+            n = w.ooe = function() {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!w._ooe) w._ooe = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '6.3.5';
+            n.queue = [];
+        };
+    }
+    orderOnlineInit(window);
+    ooe('setup', 'redirect', 'https://promohebat.orderonline.id');
+    ooe('init', 'promohebat', 'interior-cleaner', null, 'oo-embed-form-interior-cleaner-1862', {
+        "mode": "page",
+        "action": "Klik untuk pemesanan",
+        "title": "Form Pemesanan",
+        "triggerPixel": false,
+        "triggerGtm": false
+    });
+    if (!window.jQuery) {
+        ! function(w, d, e, v, id, t, s) {
+            if (d.getElementById(id)) return;
+            t = d.createElement(e);
+            t.async = !0;
+            t.src = v;
+            t.id = id;
+            t.addEventListener('load', ooEmbedScript);
+            s = d.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
     } else {
-        document.getElementById("text-info").innerHTML = '<div class="alert alert-danger">' + text_no + '</div>';
+        ooEmbedScript();
     }
-});
+} catch (e) {
+    ooLogError(e);
+    throw e;
+}
