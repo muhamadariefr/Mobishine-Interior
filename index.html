@@ -266,65 +266,18 @@
                         Hubungi kami untuk melakukan pemesanan produk Mobishine Interior Cleaner
                     </p>
                     <div class="contact-wrapper">
-                        <form action="" class="contact-form">
-                            <div class="wrapper-flex">
-                                <div class="input-wrapper">
-                                    <label for="name">Nama Lengkap</label>
-                                    <input type="text" name="name" id="name" required placeholder="Masukan Nama Lengkap" class="input-field">
+                        <!-- OrderOnline Embed Code - v6.3.5 -->
+                        <div class="ooef">
+                            <form class="orderonline-embed-form" data-username="promohebat" data-product-slug="interior-cleaner" id="oo-embed-form-interior-cleaner-1862">
+                                <div class="ooef-loader">
+                                    <div aria-live="polite" role="status">
+                                        <div>Loading...</div>
+                                    </div>
                                 </div>
-                                <div class="input-wrapper">
-                                    <label for="email">No. WhatsApp</label>
-                                    <input type="text" name="phone" id="phone" required placeholder="Masukan No. WA" class="input-field">
-                                </div>
-                            </div>
-                            <div class="contact__content">
-                                <label for="product">Jumlah Produk</label>
-                                <select name="product" class="input-field" id="product">
-                                    <option value="">-- Jumlah Produk --</option>
-                                    <option value="1 Pcs"> 1 Pcs</option>
-                                    <option value="2 Pcs"> 2 Pcs</option>
-                                    <option value="3 Pcs"> 3 Pcs</option>
-                                </select>
-                            </div>
-                            <label for="description">Alamat</label>
-                            <textarea name="description" id="description" required placeholder="Alamat Lengkap" class="input-field"></textarea>
-                            <button type="submit" class="btn btn-primary send">
-                                <span>Pesan Produk</span>
-                                <ion-icon name="paper-plane-outline"></ion-icon>
-                            </button>
-                        </form>
-                        <ul class="contact-list">
-                            <li>
-                                <a href="mailto:support@website.com" class="contact-link">
-                                    <ion-icon name="mail-outline"></ion-icon>
-                                    <span>: maknaemail@gmail.com</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="contact-link">
-                                    <ion-icon name="globe-outline"></ion-icon>
-                                    <span>: www.maknastore.com</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="tel:+6281234567890" class="contact-link">
-                                    <ion-icon name="call-outline"></ion-icon>
-                                    <span>: (+62) 8123 456 7890</span>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="contact-link">
-                                    <ion-icon name="time-outline"></ion-icon>
-                                    <span>: 08.00 - 16.00</span>
-                                </div>
-                            </li>
-                            <li>
-                                <a href="#" class="contact-link">
-                                    <ion-icon name="location-outline"></ion-icon>
-                                    <address>: Kota Bandung, Jawa Barat</address>
-                                </a>
-                            </li>
-                        </ul>
+                            </form>
+                        </div>
+
+                        <!-- End OrderOnline Embed Code -->
                     </div>
                 </div>
             </section>
@@ -373,6 +326,76 @@
 
     <!-- JS -->
     <!--=============== PEMESANAN VIA WHATSAPP ===============-->
+    <script>
+        if (typeof ooLogError != 'function') {
+            var ooLogError = function(error) {
+                var req = new XMLHttpRequest();
+                var payload = JSON.stringify({
+                    url: document.location.href,
+                    line: error.line,
+                    stack: error.stack
+                });
+                var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                req.open('POST', 'https://api.orderonline.id/log', true);
+                req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                req.send(params);
+            };
+        }
+        try {
+            if (typeof ooEmbedScript != 'function') {
+                var ooEmbedScript = function() {
+                    ! function(w, d, e, v, id, t, s) {
+                        if (d.getElementById(id)) return;
+                        t = d.createElement(e);
+                        t.async = !0;
+                        t.src = v;
+                        t.id = id;
+                        s = d.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t, s);
+                    }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-slim.min.js?v=6.3.5', 'oo-embed-js');
+                };
+            }
+            if (typeof orderOnlineInit != 'function') {
+                var orderOnlineInit = function(w, n) {
+                    if (w.ooe) return;
+                    n = w.ooe = function() {
+                        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    };
+                    if (!w._ooe) w._ooe = n;
+                    n.push = n;
+                    n.loaded = !0;
+                    n.version = '6.3.5';
+                    n.queue = [];
+                };
+            }
+            orderOnlineInit(window);
+            ooe('setup', 'redirect', 'https://promohebat.orderonline.id');
+            ooe('init', 'promohebat', 'interior-cleaner', null, 'oo-embed-form-interior-cleaner-1862', {
+                "mode": "page",
+                "action": "Klik untuk pemesanan",
+                "title": "Form Pemesanan",
+                "triggerPixel": false,
+                "triggerGtm": false
+            });
+            if (!window.jQuery) {
+                ! function(w, d, e, v, id, t, s) {
+                    if (d.getElementById(id)) return;
+                    t = d.createElement(e);
+                    t.async = !0;
+                    t.src = v;
+                    t.id = id;
+                    t.addEventListener('load', ooEmbedScript);
+                    s = d.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t, s);
+                }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+            } else {
+                ooEmbedScript();
+            }
+        } catch (e) {
+            ooLogError(e);
+            throw e;
+        }
+    </script>
     <script src="./assets/js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
